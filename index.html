@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MainPage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="imgContainer"> 
+        <img id="gif" src="pic/p1-4/1-7鸽子无背景.GIF">
+    </div>
+    <div class="start-container">
+    <button id="start" onclick="openNewMobilePage()">Start</button>
+    </div>
+    <h2>测测你的艺术品味够不够“内行”</h2>
+    <div id="type">
+        <p id="q-1">这是一个“功利”的关于艺术鉴赏力的但又不和艺术沾边的测试，<br>看看你的艺术品味符不符合艺术市场中“内行”的标准。</p>
+        <p id="q0">到底怎么衡量艺术品的价值？<br>艺术爱好者和市场是否钟爱同样的画作？<br>明码标价的昂贵艺术拍品和观众心中的好艺术有多大差距？<br>就让这个测试结果说明问题。</p>
+    </div>
+    <script>
+        window.addEventListener('resize', () => {
+ 
+ window.resizeTo(500*9/19.4*3/2,500*3/2+62);
+ console.log("resize")
+}
+);
+        function openNewMobilePage() {
+    if(window.innerHeight<window.innerWidth){
+    const leftPosition = (1200 - 500 *9/19.4*3/4) / 2;
+    const topPosition = 500 / 4;
+    const newPage = window.open('index.html', '_blank', `width=${500*9/19.4*3/2},height=${500*3/2},left=${leftPosition}",top=${topPosition},toolbar=no, initial-scale=1.0, menubar=no, resizeable=no, scrollbars=no`);
+    }else{
+        window.location.href="quizpage.html";
+    }
+   
+}
+    </script>
+</body>
+
+</html>

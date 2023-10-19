@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="script.js" defer></script>
+    <!-- <script src="data.js"></script> -->
+    <!-- <script src="p5.min.js"></script>
+    <script src="finalPganim.js"></script> -->
+    <title>Questions</title>
+</head>
+
+<body>
+    <audio autoplay loop id="bg-audio">
+        <source src="Alex Couture - Morning Rises.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <button id="mute-button">🔊</button>
+
+    <div class="book" id="page0">
+        <div class="intro">
+            <p id="t1">我们在纽约的艺术学院的垃圾堆中找到了许多被遗弃的艺术品，和它们形成鲜明对比的是这座世界艺术中心之都永不落幕的大小展览舞台。</p>
+            <p id="t2">一只饱受艺术气息熏陶的曼哈顿土著鸽子将带领你遍观不同命运不同价位的画作，考察你对商业上“成功”和“失败”艺术品的判断力。</p>
+        </div>
+        <div class="still">
+            <p id="line1">鸽子听说在纽约一个刚起步的策展项目正在征集艺术品。</p>
+            <p id="line2">鸽子知道这里遍地是艺术才俊和展馆，它相信自己能挑选出美丽又有价值的画作。</p>
+        </div>
+        <img id="gif" src="pic/p1-4/1-7鸽子无背景.GIF">
+        <img id="image1" src="pic/p1-4/1-1城市背景.jpeg" alt="Image 1">
+        <img id="image2" src="pic/p1-4/1-2城市背景.jpeg" alt="Image 2">
+        <img id="image3" src="pic/p1-4/1-3城市背景.jpeg" alt="Image 3">
+        <img id="image4" src="pic/p1-4/1-4城市背景.jpeg" alt="Image 4">
+        <img id="image5" src="pic/p1-4/1-5城市背景.jpeg" alt="Image 2">
+        <img id="image6" src="pic/p1-4/1-6城市背景.jpeg" alt="Image 3">
+        <img id="image7" src="pic/p1-4/1-7城市背景.jpeg" alt="Image 4">
+        <button class='button' id='skip' onclick="showPage('page1',-3)">Skip</button>
+    </div>
+    </div>
+    <div class="book" id="page1" style="display: none;">
+        <img id="p9" src="pic/p9.jpeg">
+        <img id="p10" src="pic/p10.jpeg">
+        <div id="q1">中央公园的湖面上漂浮着几块画布，它们是有现实中买主的艺术品还是被人丢弃的作品（后简称弃作）？（4道判断题）</div>
+        <button class='button' id='skip' onclick="showPage('page2',-3)">Skip</button>
+    </div>
+    <div class="book" id="page2" style="display: none;">
+        <!-- 第二页内容 -->
+        <p>&nbsp;&nbsp;是“成功”的艺术品还是弃作？</p>
+        <div class="button-container">
+            <button class='button' id='b1' onclick="showPage('page3',-1)">💰</button>
+            <button class='button' id="b2" onclick="showPage('page3',-2)">🗑️</button>
+        </div>
+        <button class='back' id="TFback" onclick="backPage('page2')">&lt;Back</button>
+    </div>
+
+    <div class="book" id="page3" style="display: none;">
+        <!-- 第三页内容 -->
+        <p>&nbsp;&nbsp;是“成功”的艺术品还是弃作？</p>
+        <div class="button-container">
+            <button class='button' id='b1' onclick="showPage('page4',-1)">💰</button>
+            <button class='button' id='b2' onclick="showPage('page4',-2)">🗑️</button>
+        </div>
+        <button class='back' id="TFback" onclick="backPage('page3')">&lt;Back</button>
+    </div>
+
+    <div class="book" id="page4" style="display: none;">
+        <!-- 第三页内容 -->
+        <p>&nbsp;&nbsp;是“成功”的艺术品还是弃作？</p>
+        <div class="button-container">
+            <button class='button' id='b1' onclick="showPage('page5',-1)">💰</button>
+            <button class='button' id='b2' onclick="showPage('page5',-2)">🗑️</button>
+        </div>
+        <button class='back' id="TFback" onclick="backPage('page4')">&lt;Back</button>
+    </div>
+    <div class="book" id="page5" style="display: none;">
+        <!-- 第三页内容 -->
+        <p>是“成功”的艺术品还是弃作？</p>
+        <div class="button-container">
+            <button class='button' id="b1" onclick="showPage('page6',-1)">💰</button>
+            <button class='button' id="b2" onclick="showPage('page6',-2)">🗑️</button>
+        </div>
+        <button class='back' id="TFback" onclick="backPage('page5')">&lt;Back</button>
+    </div>
+    
+    <div class="book" id="page6" style="display: none;">
+        <p id="q2">&nbsp;鸽子在地窖里发现了一箱明码标价的艺术藏品，猜一猜它们市场价值多少钱？<br>&nbsp;温馨提示：这里面可能混进了一些被遗弃的0元的艺术品。（3道滑轨题）</p>
+        <img id="p11" src="pic/p11.jpg">
+    </div>
+    <div class="book" id="page7" style="display: none;">
+        <!-- 第三页内容 -->
+        <p id="p7para">这件作品市场价值多少美元？</p>
+        <div class="slider-container">
+            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider1">
+            <p><span class="sliderValue" id="sliderValue1">50000</span>$</p>
+        </div>
+        <button class='back' id="sliderback" onclick="backPage('page7')"><</button>
+        <button class='next'  onclick="showPage('page8',sliderValue1)">></button>
+    </div>
+    <div class="book" id="page8" style="display: none;">
+        <!-- 第三页内容 -->
+        <p id="p8para">这件作品市场价值多少美元？</p>
+        <div class="slider-container">
+            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider2">
+            <p><span class="sliderValue" id="sliderValue2">50000</span>$</p>
+        </div>
+        <button class='back' id="sliderback" onclick="backPage('page8')"><</button>
+        <button class='next'  onclick="showPage('page9',sliderValue2)">></button>
+    </div>
+    <div class="book" id="page9" style="display: none;">
+        <!-- 第三页内容 -->
+        <p id="p9para">这件作品市场价值多少美元？</p>
+        <div class="slider-container">
+            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider1">
+            <p><span class="sliderValue" id="sliderValue3">50000</span>$</p>
+        </div>
+        <button class='back' id="sliderback" onclick="backPage('page9')"><</button>
+        <button class='next'  onclick="showPage('page10',sliderValue3)">></button>
+    </div>
+    
+    <script>
+    for(let i=1;i<=8;i++){
+  const slider = document.getElementById(`slider${i}`);
+  const sliderValueDisplay = document.getElementById(`sliderValue${i}`);
+  slider.addEventListener("input", function() {
+      let sliderValue = slider.value;
+      sliderValueDisplay.textContent = sliderValue;
+  });}
+
+    </script>
+
+<div class="book" id="page10" style="display: none;">
+    <img id="bird" src="pic/右下鸟.jpeg">
+    <img id="birdgif" src="pic/p1-4/1-7鸽子无背景.GIF">
+    <img id="p15" src="pic/15-16合并.jpeg">
+    <img id="p16" src="pic/p1-6/1.jpeg">
+    <!-- <img id="p17" src="pic/p1-6/2.png">
+    <img id="p18" src="pic/p1-6/3.png">
+
+    <img id="p19" src="pic/p1-6/4.png"> -->
+    <p id="q3">路人想让鸽子帮他鉴定一下他的藏品，哪一幅作品卖出了最高价钱？（3道3选一）</p>
+    <button class='button' id='skip' onclick="showPage('page11',-3)">Skip</button>
+</div>
+
+<div class="book" id="page11" style="display:none;">
+    <!-- 第三页内容 -->
+    <p id="p11para">点击你认为三幅作品中卖出最高价钱的画作。</p>
+    <button id="nextpic" onclick="nextpic(1)">➦</button>
+    <div id="picframe">
+        <img class="q31" onclick="showPage('page12',-1)" id="q31_1_0" src="pic/31/1_1_0.JPG">
+        <img class="q31" onclick="showPage('page12',-2)" id="q31_1_1" src="pic/31/1_0_176400.jpeg" style="display:none;">
+        <img class="q31" onclick="showPage('page12',-3)" id="q31_1_2" src="pic/31/1_0_1200.jpeg" style="display:none;">
+    </div>
+    <button class='back' id="sliderback" onclick="backPage('page11')"><</button>
+    <!-- <button class='next'  onclick="showPage('page12',-1)">></button> -->
+</div>
+
+<div class="book" id="page12" style="display: none;">
+    <!-- 第三页内容 -->
+    <p id="p12para">点击你认为三幅作品中卖出最高价钱的画作。</p>
+    <button id="nextpic" onclick="nextpic(2)">➦</button>
+    <div id="picframe">
+        <img class="q31" onclick="showPage('page13',-1)" id="q31_2_0" src="pic/31/2_0_2000.jpeg">
+        <img class="q31" onclick="showPage('page13',-2)" id="q31_2_1" src="pic/31/2_0_1812500.jpeg" style="display:none;">
+        <img class="q31" onclick="showPage('page13',-3)" id="q31_2_2" src="pic/31/2_1_0.JPG" style="display:none;">
+    </div>
+    <button class='back' id="sliderback" onclick="backPage('page12')"><</button>
+</div>
+<div class="book" id="page13" style="display: none;">
+    <!-- 第三页内容 -->
+    <p id="p13para">点击你认为三幅作品中卖出最高价钱的画作。</p>
+    <button id="nextpic" onclick="nextpic(3)">➦</button>
+    <div id="picframe">
+        <img class="q31" onclick="showPage('page14',-1)" id="q31_3_0" src="pic/31/3_0_750.jpeg">
+        <img class="q31" onclick="showPage('page14',-2)" id="q31_3_1" src="pic/31/3_1_0.JPG" style="display:none;">
+        <img class="q31" onclick="showPage('page14',-3)" id="q31_3_2" src="pic/31/3_0_550.jpeg" style="display:none;">
+    </div>
+    <button class='back' id="sliderback" onclick="backPage('page13')"><</button>
+</div>
+<div class="book" id="page14" style="display: none;">
+    <!-- 第三页内容 -->
+    <img id="p22" src="pic/p16.jpg">
+    <img id="p23" src="pic/p23.jpeg">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <p id="jxf">鸽子继续向下城飞去</p>
+    <img id="p25" src="pic/p25.jpg">
+    <img id="p26" src="pic/p26.jpg">
+    <p id="ljx">看到大大的垃圾箱横在路边，<br>鸽子想：祂不会和我一样在找参展的艺术品吧？</p>
+    <button class='button' id='skip' onclick="showPage('page15',-3)">Skip</button>
+</div>
+<div class="book" id="page15" style="display: none;">
+    <!-- 第三页内容 -->
+    <p id="p15para">&nbsp;&nbsp;是“成功”的艺术品还是弃作？</p>
+        <div class="button-container">
+            <button class='button' id='b1' onclick="showPage('page16',-1)">💰</button>
+            <button class='button' id="b2" onclick="showPage('page16',-2)">🗑️</button>
+        </div>
+        <button class='back' id="TFback" onclick="backPage('page15')">&lt;Back</button>
+    </div>
+    <div class="book" id="page16" style="display: none;">
+        <img id="jingyi" src="pic/page15.jpg">
+        <img id="p27" src="pic/p27.jpg">
+        <p id="jingyitf"></p>
+        <img id="ball" src="pic/mySketch (5).gif">
+        <p id="thx">感谢你陪着鸽子<br>完成这趟旅行</p>
+        <!-- <button class='button' id='skip' onclick="showPage('page11',-3)">Skip</button> -->
+    </div>
+    <!-- result -->
+
+    <div class="book" id="page17" style="display: none;">
+        <div class="sketchContainer">
+            <img id="bggif" src="pic\mySketch (1).gif">
+        </div>
+        <div class="result">
+            <h1>这是根据您的选择生成的结果：</h1>
+            <p id="result"></p>
+            <p id="longestTimeQuestion"></p>
+            <p id="TFQuestions"></p>
+        </div>
+    </div>
+    
+    <!-- <div class="coordinates" id="coordinates">Mouse Coordinates: (0, 0)</div> -->
+</body>
+
+</html>
