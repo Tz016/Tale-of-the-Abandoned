@@ -4,11 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="script.js" defer></script>
+    <link rel="preload" href="pic/background.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-1城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-2城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-3城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-4城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-5城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-6城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-7城市背景.jpeg" as="image">
+    <link rel="preload" href="pic/p1-4/1-7鸽子无背景.GIF" as="document">
+    <link rel="preload" href="pic/p9.jpeg" as="image">
+    <link rel="preload" href="pic/p10.jpeg" as="image">
+    <link rel="preload" href="pic/p11.jpg" as="image">
+    <link rel="preload" href="pic/p12.jpg" as="image">
+    <link rel="preload" href="pic/p13.jpg" as="image">
+    <link rel="preload" href="pic/p14.jpg" as="image">
+    <link rel="preload" href="pic/p15.jpg" as="image">
+    <link rel="preload" href="pic/p16.jpg" as="image">
+    <link rel="preload" href="pic/p23.jpeg" as="image">
+    <link rel="preload" href="pic/p24.jpeg" as="image">
+    <link rel="preload" href="pic/p25.jpg" as="image">
+    <link rel="preload" href="pic/p26.jpg" as="image">
+    <link rel="preload" href="pic/p27.jpg" as="image">
+    <link rel="preload" href="pic/page15.jpg" as="image">
+    <link rel="preload" href="pic/scene2_1wpic.jpeg" as="image">
+    <link rel="preload" href="pic/scene2_2wpic.jpeg" as="image">
+    <link rel="preload" href="pic/scene2_3wpic.jpeg" as="image">
+    <link rel="preload" href="pic/scene2_4wpic.jpeg" as="image">
+    <link rel="preload" href="pic/15-16合并.jpeg" as="image">
+    <link rel="preload" href="pic/放大鸟.jpeg" as="image">
+    <link rel="preload" href="pic/右下鸟.jpeg" as="image">
+    <link rel="preload" href="pic/p1-6/1.jpeg" as="image">
+    <link rel="preload" href="pic/31/1_0_1200.jpeg" as="image">
+    <link rel="preload" href="pic/31/1_0_176400.jpeg" as="image">
+    <link rel="preload" href="pic/31/1_1_0.JPG" as="image">
+    <link rel="preload" href="pic/31/2_0_2000.jpeg" as="image">
+    <link rel="preload" href="pic/31/2_0_1812500.jpeg" as="image">
+    <link rel="preload" href="pic/31/2_1_0.JPG" as="image">
+    <link rel="preload" href="pic/31/3_0_550.jpeg" as="image">
+    <link rel="preload" href="pic/31/3_0_750.jpeg" as="image">
+    <link rel="preload" href="pic/31/3_1_0.JPG" as="image">
     <!-- <script src="data.js"></script> -->
     <!-- <script src="p5.min.js"></script>
     <script src="finalPganim.js"></script> -->
@@ -21,7 +62,7 @@
         Your browser does not support the audio element.
       </audio>
       <button id="mute-button">🔊</button>
-
+      <div class="loader"></div>
     <div class="book" id="page0">
         <div class="intro">
             <p id="t1">我们在纽约的艺术学院的垃圾堆中找到了许多被遗弃的艺术品，和它们形成鲜明对比的是这座世界艺术中心之都永不落幕的大小展览舞台。</p>

@@ -22,6 +22,10 @@ const db = firebase.firestore();
 
 const audioElement = document.getElementById('bg-audio');
 const muteButton = document.getElementById('mute-button');
+window.addEventListener('load', function() {
+  // 加载完成后隐藏加载动画
+  document.querySelector('.loader').style.display = 'none';
+});
 
 // 添加按钮点击事件监听器
 muteButton.addEventListener('click', () => {
