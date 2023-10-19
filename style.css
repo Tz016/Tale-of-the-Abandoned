@@ -49,7 +49,6 @@
     top:29vh;
     right:8vw;
     height:auto;
-    letter-spacing: -0.5vh;
   }
   /* #type{
     position: absolute;
@@ -576,7 +575,6 @@ body {
     font-size: medium;
     writing-mode: vertical-rl;
     margin-top: 40px;
-    letter-spacing: -0.5vh;;
 }
 /* #page2 .button-container {
     position: absolute;
@@ -930,7 +928,6 @@ body {
   opacity:0;
   animation:disappear 4s;
   animation-delay:13.5s;
-  letter-spacing: -0.5vh;
 }
 
 #jingyi{
@@ -956,7 +953,6 @@ body {
   right:50vw;
   writing-mode: vertical-rl;
   font-size: 2vh;
-  letter-spacing: -0.2vh;
   height: 60vh;
   z-index: 4;
   opacity: 0;
