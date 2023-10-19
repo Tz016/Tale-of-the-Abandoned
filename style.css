@@ -31,6 +31,7 @@
 #mute-button:hover{
   text-shadow: 4px 4px 4px #49a7c4;
 }
+
 @media (max-aspect-ratio: 5/4) {
   h2{
     position: absolute;
@@ -79,17 +80,14 @@
     }  */
   #start{
       position: absolute;
-      writing-mode: vertical-rl; /* 从右至左的垂直书写模式 */
-      text-orientation: upright; /* 保持文本垂直方向正常显示 */
-      white-space: nowrap;
-      display:flex; 
+      /* white-space: nowrap; */
+      /* display:flex;  */
       padding:2%;
       padding-left: 5%;
       padding-right:5%;
       top:43%;
-      height: 5%;
       left:20%;
-      font-size:large;
+      font-size:3.5vh;
       font-weight: bolder;
       text-shadow: #FC0 1px 0 10px;
       background-color:rgba(255, 255, 255, 0.4);
@@ -126,6 +124,11 @@
       left:12vw;
       width: 78vw;
     }
+   #start{
+    bottom:30%;
+    font-size: 3.5vh;
+    font-weight: bolder;
+   }
 }
 /* #type{
   position: absolute;
@@ -148,6 +151,7 @@
     margin:5vw;
     font-size:5vw;
     opacity:0;
+    z-index: 10;
     animation: appear 5s;
     animation-delay:7s;
 }
@@ -161,7 +165,7 @@
     /* border-right: 2px solid transparent; */
    
 @keyframes appear{
-  from { opacity:0 }
+  20% { opacity:1 }
   to { opacity:1  }
 }
 /* 打印效果 */
@@ -252,6 +256,7 @@ body {
     top:10vh;
     text-align: center;
     margin:5vw;
+    z-index: 10;
     font-size:4vw;
   }
   #t1{
@@ -521,6 +526,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px; 
+    height:10vh;
 }
 #start{
     position: absolute;
@@ -528,9 +534,6 @@ body {
     padding:2%;
     padding-left: 5%;
     padding-right:5%;
-    bottom:30%;
-    font-size: large;
-    font-weight: bolder;
     text-shadow: #FC0 1px 0 10px;
     background-color:rgba(255, 255, 255, 0.4);
     color: black;
@@ -1355,8 +1358,9 @@ animation-delay: 7.5s;
 #nextpic{
   position:absolute;
   background: none;
+  color:black;
   border: 0;
-  font-size: 3rem;
+  font-size: 10vh;
   top:28vh;
   left:77vw;
   rotate:15deg;
