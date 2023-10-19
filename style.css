@@ -17,7 +17,7 @@
 #mute-button:hover{
   text-shadow: 4px 4px 4px #49a7c4;
 }
-@media (max-width: 500px) {
+@media (max-aspect-ratio: 5/4) {
   h2{
     position: absolute;
     writing-mode: horizontal-tb;
@@ -92,7 +92,7 @@
 }
 
 /* 使用媒体查询，在大屏幕上应用不同的样式 */
-@media (min-width: 700px) {
+@media (min-aspect-ratio: 5/4) {
   #type{
     position: absolute;
     bottom:40vh;
@@ -216,6 +216,7 @@ body {
     font-family: 'uploadfont', sans-serif; /* 使用自定义字体，如果无法加载则使用默认 sans-serif 字体 */
     font-weight: bold;
     font-size:large;
+    overflow: hidden;
     user-select: none;
   }
   #q1,#q2{
@@ -1160,6 +1161,7 @@ animation-delay: 7.5s;
   position:absolute;
   top:50vh;
   left:0px;
+  height:10vh;
   justify-content: center;
   background-color: rgba(200, 205, 201, 0.582);
   color:white;
@@ -1169,6 +1171,7 @@ animation-delay: 7.5s;
   position:absolute;
   top:50vh;
   right:0px;
+  height:10vh;
   justify-content: center;
   background-color: rgba(200, 205, 201, 0.582);
   color:white;
@@ -1182,6 +1185,7 @@ animation-delay: 7.5s;
   background-color: rgba(43, 42, 41, 0.201);
   font-size:medium;    
 }
+
 .back:hover{
   background-color: rgba(43, 42, 41, 0.201);
   font-size:medium;    

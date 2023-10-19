@@ -289,6 +289,8 @@ function backPage(pageId) {
       previousPageId = pageId.replace(pageNumber, 5);
     }else if(pageNumber==2){
       previousPageId = pageId.replace(pageNumber, 0);
+    }else if(pageNumber==11){
+      previousPageId = pageId.replace(pageNumber, 9);
     }else if(pageNumber==15){
       previousPageId = pageId.replace(pageNumber, 13);
     }else{
