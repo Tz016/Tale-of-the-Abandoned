@@ -794,6 +794,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   z-index:-3;
   opacity: 0;
   animation: floatup6 7s;
@@ -803,6 +804,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   z-index:-3;
   opacity: 0;
   animation: floatup7 4s;
@@ -865,6 +867,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   opacity: 0;
   animation: birdfloat1 2s; 
 }
@@ -874,6 +877,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   opacity: 0;
   animation:birdfloat 5s ease;
 }
@@ -905,6 +909,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   opacity: 0;
   animation: birdperson 4s;
   animation-delay: 7s;
@@ -935,6 +940,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   opacity: 0;
   animation: jingyi 2s;
 }
@@ -943,6 +949,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width:100vw;
   opacity: 0;
   animation: jingyi1 7s;
   animation-delay: 1s;
