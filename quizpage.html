@@ -115,7 +115,7 @@
         <!-- 第三页内容 -->
         <p id="p9para">这件作品市场价值多少美元？</p>
         <div class="slider-container">
-            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider1">
+            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider3">
             <p><span class="sliderValue" id="sliderValue3">50000</span>$</p>
         </div>
         <button class='back' id="sliderback" onclick="backPage('page9')"><</button>
@@ -123,7 +123,7 @@
     </div>
     
     <script>
-    for(let i=1;i<=8;i++){
+    for(let i=1;i<=3;i++){
   const slider = document.getElementById(`slider${i}`);
   const sliderValueDisplay = document.getElementById(`sliderValue${i}`);
   slider.addEventListener("input", function() {

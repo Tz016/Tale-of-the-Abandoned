@@ -157,7 +157,7 @@ var anim4 = document.querySelector("#p26");
 anim4.addEventListener("animationend",function(e){
   showPage('page15',5);
 },false);
-var anim5 = document.querySelector("#p27");
+var anim5 = document.querySelector("#ball");
 anim5.addEventListener("animationend",function(e){
   showPage('page17',5);
 },false);
