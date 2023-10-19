@@ -919,6 +919,7 @@ body {
   top:0;
   left:0;
   height:100vh;
+  width: 100vw;;
   opacity: 0;
   animation: rubbish 7s;
   animation-delay: 10.5s;
@@ -1019,7 +1020,7 @@ animation-delay: 7.5s;
 @keyframes rubbish {
   0%{
     opacity: 1;
-    transform: scale(14) translate(-37vw,-33vh);
+    transform: scale(14) translate(-37vw,-28vh);
   }
   50%{
     opacity:1;
