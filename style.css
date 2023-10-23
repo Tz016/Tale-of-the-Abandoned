@@ -226,7 +226,66 @@
     width: 100%;
     height: 100%;
   } */
-
+  #page8 .slider-container {
+    position: absolute;
+    display:flex;
+    /* justify-self: center; */
+    left:10%;
+    right:10%;
+    top: 15%;
+  }
+  #page9 .slider-container {
+    position: absolute;
+    display:flex;
+    left:10%;
+    right:10%;
+    top: 15%;
+  }
+  #page7 .slider-container {
+    position: absolute;
+    /* display:flex; */
+    /* justify-self: center; */
+    left:10%;
+    right:10%;
+    bottom: 15%;
+  }
+  .slider{
+    position: absolute;
+   width:70%;
+   top:25px;
+   height:2px;
+   background: #FC0;
+   box-shadow: 10px 3px 10px #FC0;
+  }
+  .slider:hover{
+    background: rgb(255, 255, 255);
+  }
+  
+  .sliderValue{
+    position: absolute;
+    right:10px;
+    top:0px;
+    text-shadow: 10px 3px 10px #FC0;
+  }
+  
+  .resultpage {
+    height: 100vh; /* 单个页面的高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+    background-color: #f0f0f0;
+    transition: opacity 0.5s;
+  }
+  
+  .resultpage.hidden {
+    opacity: 0; /* 隐藏页面 */
+  }
+  .resultpage body{
+    margin: 0;
+  padding: 0;
+  height: 200vh; /* 页面高度的总和 */
+  }
 body {
     /* margin: 0;
     display: flex;
@@ -770,30 +829,6 @@ body {
   margin-top: 20%;
 }
 
-#page8 .slider-container {
-  position: absolute;
-  display:flex;
-  justify-self: center;
-  left:10%;
-  right:10%;
-  top: 15%;
-}
-#page9 .slider-container {
-  position: absolute;
-  display:flex;
-  justify-self: center;
-  left:10%;
-  right:10%;
-  top: 15%;
-}
-#page7 .slider-container {
-  position: absolute;
-  display:flex;
-  justify-self: center;
-  left:10%;
-  right:10%;
-  bottom: 10%;
-}
 
 #bird{
   height:100vh;
@@ -1157,15 +1192,6 @@ animation-delay: 7.5s;
 }
 }
 
-
-.slider{
-  flex:1;
-  width:10%;
-}
-.sliderValue{
-  flex:2;
-  margin-left:15%;
-}
 
 
 #TFback{

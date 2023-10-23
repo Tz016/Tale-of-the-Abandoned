@@ -10,7 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="script.js" defer></script>
-    <link rel="preload" href="pic/background.jpeg" as="image">
+    <!-- <link rel="preload" href="pic/background.jpeg" as="image"> -->
     <link rel="preload" href="pic/p1-4/1-1城市背景.jpeg" as="image">
     <link rel="preload" href="pic/p1-4/1-2城市背景.jpeg" as="image">
     <link rel="preload" href="pic/p1-4/1-3城市背景.jpeg" as="image">
@@ -18,26 +18,26 @@
     <link rel="preload" href="pic/p1-4/1-5城市背景.jpeg" as="image">
     <link rel="preload" href="pic/p1-4/1-6城市背景.jpeg" as="image">
     <link rel="preload" href="pic/p1-4/1-7城市背景.jpeg" as="image">
-    <link rel="preload" href="pic/p1-4/1-7鸽子无背景.GIF" as="document">
+    <link rel="preload" href="pic/p1-4/1-7鸽子无背景.GIF" as="image">
     <link rel="preload" href="pic/p9.jpeg" as="image">
     <link rel="preload" href="pic/p10.jpeg" as="image">
     <link rel="preload" href="pic/p11.jpg" as="image">
-    <link rel="preload" href="pic/p12.jpg" as="image">
-    <link rel="preload" href="pic/p13.jpg" as="image">
-    <link rel="preload" href="pic/p14.jpg" as="image">
-    <link rel="preload" href="pic/p15.jpg" as="image">
+    <!-- <link rel="preload" href="pic/p12.jpg" as="image"> -->
+    <!-- <link rel="preload" href="pic/p13.jpg" as="image"> -->
+    <!-- <link rel="preload" href="pic/p14.jpg" as="image"> -->
+    <!-- <link rel="preload" href="pic/p15.jpg" as="image">
     <link rel="preload" href="pic/p16.jpg" as="image">
     <link rel="preload" href="pic/p23.jpeg" as="image">
     <link rel="preload" href="pic/p24.jpeg" as="image">
     <link rel="preload" href="pic/p25.jpg" as="image">
     <link rel="preload" href="pic/p26.jpg" as="image">
     <link rel="preload" href="pic/p27.jpg" as="image">
-    <link rel="preload" href="pic/page15.jpg" as="image">
-    <link rel="preload" href="pic/scene2_1wpic.jpeg" as="image">
+    <link rel="preload" href="pic/page15.jpg" as="image"> -->
+    <!-- <link rel="preload" href="pic/scene2_1wpic.jpeg" as="image">
     <link rel="preload" href="pic/scene2_2wpic.jpeg" as="image">
     <link rel="preload" href="pic/scene2_3wpic.jpeg" as="image">
-    <link rel="preload" href="pic/scene2_4wpic.jpeg" as="image">
-    <link rel="preload" href="pic/15-16合并.jpeg" as="image">
+    <link rel="preload" href="pic/scene2_4wpic.jpeg" as="image"> -->
+    <!-- <link rel="preload" href="pic/15-16合并.jpeg" as="image">
     <link rel="preload" href="pic/放大鸟.jpeg" as="image">
     <link rel="preload" href="pic/右下鸟.jpeg" as="image">
     <link rel="preload" href="pic/p1-6/1.jpeg" as="image">
@@ -50,6 +50,7 @@
     <link rel="preload" href="pic/31/3_0_550.jpeg" as="image">
     <link rel="preload" href="pic/31/3_0_750.jpeg" as="image">
     <link rel="preload" href="pic/31/3_1_0.JPG" as="image">
+    <link rel="preload" href="pic/poster.jpg" as="image"> -->
     <!-- <script src="data.js"></script> -->
     <!-- <script src="p5.min.js"></script>
     <script src="finalPganim.js"></script> -->
@@ -80,7 +81,8 @@
         <img id="image5" src="pic/p1-4/1-5城市背景.jpeg" alt="Image 2">
         <img id="image6" src="pic/p1-4/1-6城市背景.jpeg" alt="Image 3">
         <img id="image7" src="pic/p1-4/1-7城市背景.jpeg" alt="Image 4">
-        <button class='button' id='skip' onclick="showPage('page1',-3)">Skip</button>
+        <button class='button' id='skip' onclick="showPage('page1',-3
+        )">Skip</button>
     </div>
     </div>
     <div class="book" id="page1" style="display: none;">
@@ -95,6 +97,7 @@
         <div class="button-container">
             <button class='button' id='b1' onclick="showPage('page3',-1)">💰</button>
             <button class='button' id="b2" onclick="showPage('page3',-2)">🗑️</button>
+        <!-- -1正 -->
         </div>
         <button class='back' id="TFback" onclick="backPage('page2')">&lt;Back</button>
     </div>
@@ -103,8 +106,8 @@
         <!-- 第三页内容 -->
         <p>2/4 是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id='b1' onclick="showPage('page4',-1)">💰</button>
-            <button class='button' id='b2' onclick="showPage('page4',-2)">🗑️</button>
+            <button class='button' id='b1' onclick="showPage('page4',-2)">💰</button>
+            <button class='button' id='b2' onclick="showPage('page4',-1)">🗑️</button>
         </div>
         <button class='back' id="TFback" onclick="backPage('page3')">&lt;Back</button>
     </div>
@@ -113,8 +116,8 @@
         <!-- 第三页内容 -->
         <p>3/4 是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id='b1' onclick="showPage('page5',-1)">💰</button>
-            <button class='button' id='b2' onclick="showPage('page5',-2)">🗑️</button>
+            <button class='button' id='b1' onclick="showPage('page5',-2)">💰</button>
+            <button class='button' id='b2' onclick="showPage('page5',-1)">🗑️</button>
         </div>
         <button class='back' id="TFback" onclick="backPage('page4')">&lt;Back</button>
     </div>
@@ -136,8 +139,8 @@
         <!-- 第三页内容 -->
         <p id="p7para">1/3 这件作品市场价值多少美元？</p>
         <div class="slider-container">
-            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider1">
-            <p><span class="sliderValue" id="sliderValue1">50000</span>$</p>
+            <input type="range" min="0" max="15000" value="7500" class="slider" id="slider1">
+            <p class="sliderValue"><span  id="sliderValue1">7500</span>$</p>
         </div>
         <button class='back' id="sliderback" onclick="backPage('page7')"><</button>
         <button class='next'  onclick="showPage('page8',sliderValue1)">></button>
@@ -146,8 +149,8 @@
         <!-- 第三页内容 -->
         <p id="p8para">2/3 这件作品市场价值多少美元？</p>
         <div class="slider-container">
-            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider2">
-            <p><span class="sliderValue" id="sliderValue2">50000</span>$</p>
+            <input type="range" min="0" max="15000" value="7500" class="slider" id="slider2">
+            <p class="sliderValue"><span id="sliderValue2">7500</span>$</p>
         </div>
         <button class='back' id="sliderback" onclick="backPage('page8')"><</button>
         <button class='next'  onclick="showPage('page9',sliderValue2)">></button>
@@ -156,8 +159,8 @@
         <!-- 第三页内容 -->
         <p id="p9para">3/3 这件作品市场价值多少美元？</p>
         <div class="slider-container">
-            <input type="range" min="0" max="100000" value="50000" class="slider" id="slider3">
-            <p><span class="sliderValue" id="sliderValue3">50000</span>$</p>
+            <input type="range" min="0" max="15000" value="7500" class="slider" id="slider3">
+            <p class="sliderValue"><span  id="sliderValue3">7500</span>$</p>
         </div>
         <button class='back' id="sliderback" onclick="backPage('page9')"><</button>
         <button class='next'  onclick="showPage('page10',sliderValue3)">></button>
@@ -192,9 +195,9 @@
     <p id="p11para">1/3 点击你认为三幅作品中卖出最高价钱的画作。</p>
     <button id="nextpic" onclick="nextpic(1)">➦</button>
     <div id="picframe">
-        <img class="q31" onclick="showPage('page12',-1)" id="q31_1_0" src="pic/31/1_1_0.JPG">
-        <img class="q31" onclick="showPage('page12',-2)" id="q31_1_1" src="pic/31/1_0_176400.jpeg" style="display:none;">
-        <img class="q31" onclick="showPage('page12',-3)" id="q31_1_2" src="pic/31/1_0_1200.jpeg" style="display:none;">
+        <img class="q31" onclick="showPage('page12',-2)" id="q31_1_0" src="pic/31/1_1_0.JPG">
+        <img class="q31" onclick="showPage('page12',-1)" id="q31_1_1" src="pic/31/1_0_176400.jpeg" style="display:none;">
+        <img class="q31" onclick="showPage('page12',-2)" id="q31_1_2" src="pic/31/1_0_1200.jpeg" style="display:none;">
     </div>
     <button class='back' id="sliderback" onclick="backPage('page11')"><</button>
     <!-- <button class='next'  onclick="showPage('page12',-1)">></button> -->
@@ -205,9 +208,9 @@
     <p id="p12para">2/3 点击你认为三幅作品中卖出最高价钱的画作。</p>
     <button id="nextpic" onclick="nextpic(2)">➦</button>
     <div id="picframe">
-        <img class="q31" onclick="showPage('page13',-1)" id="q31_2_0" src="pic/31/2_0_2000.jpeg">
-        <img class="q31" onclick="showPage('page13',-2)" id="q31_2_1" src="pic/31/2_0_1812500.jpeg" style="display:none;">
-        <img class="q31" onclick="showPage('page13',-3)" id="q31_2_2" src="pic/31/2_1_0.JPG" style="display:none;">
+        <img class="q31" onclick="showPage('page13',-2)" id="q31_2_0" src="pic/31/2_0_2000.jpeg">
+        <img class="q31" onclick="showPage('page13',-1)" id="q31_2_1" src="pic/31/2_0_1812500.jpeg" style="display:none;">
+        <img class="q31" onclick="showPage('page13',-2)" id="q31_2_2" src="pic/31/2_1_0.JPG" style="display:none;">
     </div>
     <button class='back' id="sliderback" onclick="backPage('page12')"><</button>
 </div>
@@ -216,9 +219,9 @@
     <p id="p13para">3/3 点击你认为三幅作品中卖出最高价钱的画作。</p>
     <button id="nextpic" onclick="nextpic(3)">➦</button>
     <div id="picframe">
-        <img class="q31" onclick="showPage('page14',-1)" id="q31_3_0" src="pic/31/3_0_750.jpeg">
-        <img class="q31" onclick="showPage('page14',-2)" id="q31_3_1" src="pic/31/3_1_0.JPG" style="display:none;">
-        <img class="q31" onclick="showPage('page14',-3)" id="q31_3_2" src="pic/31/3_0_550.jpeg" style="display:none;">
+        <img class="q31" onclick="showPage('page14',-2)" id="q31_3_0" src="pic/31/3_0_750.jpeg">
+        <img class="q31" onclick="showPage('page14',-1)" id="q31_3_1" src="pic/31/3_1_0.JPG" style="display:none;">
+        <img class="q31" onclick="showPage('page14',-2)" id="q31_3_2" src="pic/31/3_0_550.jpeg" style="display:none;">
     </div>
     <button class='back' id="sliderback" onclick="backPage('page13')"><</button>
 </div>
@@ -238,8 +241,8 @@
     <!-- 第三页内容 -->
     <p id="p15para">&nbsp;&nbsp;是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id='b1' onclick="showPage('page16',-1)">💰</button>
-            <button class='button' id="b2" onclick="showPage('page16',-2)">🗑️</button>
+            <button class='button' id='b1' onclick="showPage('page16',-2)">💰</button>
+            <button class='button' id="b2" onclick="showPage('page16',-1)">🗑️</button>
         </div>
         <button class='back' id="TFback" onclick="backPage('page15')">&lt;Back</button>
     </div>
@@ -254,6 +257,7 @@
     <!-- result -->
 
     <div class="book" id="page17" style="display: none;">
+        <section class="resultpage" id="result1">
         <div class="sketchContainer">
             <img id="bggif" src="pic\mySketch (1).gif">
         </div>
@@ -263,6 +267,11 @@
             <p id="longestTimeQuestion"></p>
             <p id="TFQuestions"></p>
         </div>
+        </section>
+        <section class="resultpage" id="result2">
+        <img id="poster" src="pic/poster.jpg">
+    </section>
+
     </div>
     
     <!-- <div class="coordinates" id="coordinates">Mouse Coordinates: (0, 0)</div> -->
