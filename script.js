@@ -209,8 +209,8 @@ function showPage(pageId,TF) {
 }
 
 function showResult() {
-  // let arrow1=document.getElementById("arrow1");
-  // let arrow2=document.getElementById("arrow2");
+  let arrow1=document.getElementById("arrow1");
+  let arrow2=document.getElementById("arrow2");
   // let result1=document.getElementById("result1");
   // let result2=document.getElementById("result2");
   // arrow1.addEventListener("click",function(){
@@ -242,19 +242,26 @@ function showResult() {
   // })
 
   const pages = document.querySelectorAll('.resultpage');
+  console.log(pages);
   let currentPage = 0;
   let startY = 0;
   let endY = 0;
+  let isDragging = false;
+  pages[1].classList.add('hidden');
   function handleSwipe() {
     const deltaY = endY - startY;
   
     if (deltaY > 50 && currentPage > 0) {
       // 向上滑动，显示上一页
+      arrow2.style.display='none';
+      arrow1.style.display='block'
       pages[currentPage].classList.add('hidden');
       currentPage--;
       pages[currentPage].classList.remove('hidden');
     } else if (deltaY < -50 && currentPage < pages.length - 1) {
       // 向下滑动，显示下一页
+      arrow1.style.display='none';
+      arrow2.style.display='block';
       pages[currentPage].classList.add('hidden');
       currentPage++;
       pages[currentPage].classList.remove('hidden');

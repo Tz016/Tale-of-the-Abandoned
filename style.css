@@ -287,6 +287,7 @@
   #arrow2{
     position:fixed;
     font-size:10vh;
+    display: none;
     color:rgb(250, 250, 250);
     bottom: -30px;
     left:40vw;
@@ -333,7 +334,14 @@
     top:0;
     width:100vw;
     height:100vh;
+    z-index:1;
   }
+  #result1{
+    z-index:3;
+  }
+  /* #result2{
+    display: none;
+  } */
   .result{
     position: fixed;
     font-size: 4vw;
