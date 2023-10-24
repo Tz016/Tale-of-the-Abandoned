@@ -22,7 +22,7 @@
 // // Initialize Firebase
 // firebase.initializeApp(firebaseConfig);
 // const db = firebase.firestore();
-
+var startresult=0;
 const audioElement = document.getElementById('bg-audio');
 const muteButton = document.getElementById('mute-button');
 window.addEventListener('load', function() {
@@ -135,8 +135,8 @@ let calculateTime=[]
 //   console.log(questionTimes[questionNumber])
 // }
 
-let TFQuestion=[];
-let SliderQuestion=[];
+var TFQuestion=[];
+var SliderQuestion=[];
 // function getsliderValue(pageId){
 //   var slider=document.getElementById("next");
 //   nextbutton.addEventListener()
@@ -216,8 +216,13 @@ function showPage(pageId,TF) {
     showResult();
   }
 }
+var correctTF=0;
+var correctslider=0;
+var percen=0.00;
 
 function showResult() {
+
+  // startresult=1;
   let arrow1=document.getElementById("arrow1");
   let arrow2=document.getElementById("arrow2");
   // let result1=document.getElementById("result1");
@@ -308,8 +313,8 @@ function showResult() {
   });
   pages[currentPage].classList.remove('hidden');
   
- let correctTF=0;
- let correctslider=0;
+ 
+//  let correctslider=0;
  let sliderv=["10344","7050","0"];
  for(let i=0;i<8;i++){
   if(TFQuestion[i]==-1){
@@ -321,8 +326,10 @@ function showResult() {
     correctslider+=1
   }
  }
- let percen=(correctTF+correctslider)/11*100;
- percen=Math.round(percen * 100) / 100;
+//  let percen=(correctTF+correctslider)/11*100;
+  percen=(correctTF+correctslider)/11*100;
+  percen=Math.round(percen * 100) / 100;
+  window.record();
   document.getElementById('result').textContent = '在这次测试中，你观赏了50%的弃作，xx%的AI作品，xx%的established artist的作品。 ';
   // var longestTime=0;
   // for(let i=0;i<questionTimes.length-1;i++){
@@ -346,19 +353,7 @@ function showResult() {
 
   document.getElementById('TFQuestions').textContent = `测试中你选择出了${correctTF}个正确的弃作或最高价值作品，于滑轨题中估计对了${correctslider}个作品的价格，总正确率是${percen}%`
 
-  db.collection("users").doc(new Date.getTime()+Math.random()).set({
-    选择题: TFQuestion,
-    滑轨题: SliderQuestion,
-    正确选择题数: correctTF,
-    正确滑轨题数量: correctslider,
-    正确率: percen,
-})
-.then(() => {
-    console.log("Document successfully written!");
-})
-.catch((error) => {
-    console.error("Error writing document: ", error);
-});
+
 
 }
 

@@ -277,7 +277,52 @@
         </div>
     
     </section>
-    <script>import {firestore} from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js'</script>
+        <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+        <script type="module">
+
+          import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
+      
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
+  
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+      import { getFirestore,doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+      const firebaseConfig = {
+apiKey: "AIzaSyCzDabBMOoijaRjE_IaliYYXcjImZCiK4k",
+authDomain: "questionnaire-3a4a0.firebaseapp.com",
+projectId: "questionnaire-3a4a0",
+storageBucket: "questionnaire-3a4a0.appspot.com",
+messagingSenderId: "796199687011",
+appId: "1:796199687011:web:4b36cfbdaa18e2b03ff956",
+measurementId: "G-Y8LKHVJ0ES"
+};
+const app=initializeApp(firebaseConfig)
+const db = getFirestore(app);
+// import { TFQuestion,SliderQuestion,correctTF,correctslider,percen } from './script.js';
+// db.collection("users").doc(new Date.getTime()+Math.random()).set(
+window.record=async function record(){
+const docData={
+    选择题: TFQuestion,
+    滑轨题: SliderQuestion,
+    正确选择题数: correctTF,
+    正确滑轨题数量: correctslider,
+    正确率: percen,
+}
+// )
+const uid=`${new Date().getTime()}-${Math.random()}`
+await setDoc(doc(db,"users",uid),docData)
+.then(() => {
+    startresult=0;
+    console.log("Document successfully written!");
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
+});
+
+}
+        </script>
+    
 
     <!-- <div class="coordinates" id="coordinates">Mouse Coordinates: (0, 0)</div> -->
 </body>
