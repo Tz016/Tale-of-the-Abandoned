@@ -408,6 +408,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh; */
+    touch-action: manipulation;
     background-image: url('pic/background.jpeg');
     font-family: 'uploadfont', sans-serif; /* 使用自定义字体，如果无法加载则使用默认 sans-serif 字体 */
     font-weight: bold;
