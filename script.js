@@ -188,10 +188,19 @@ function showPage(pageId,TF) {
   }
   // console.log(pageId)
   const nextPage = document.getElementById(pageId);
+  const curPage=document.getElementById(pageId.replace(pageNumber, pageNumber - 1))
   // console.log(nextPage)
   nextPage.style.display = 'block';
-  if ( pageId!=='page10' && pageId!='page14' && pageId!='page16'){
+  try{
+    curPage.classList.remove('page-transition-in');
+  }catch(err){
+    console.log(curPage)
+  }
+  if ( pageId!=='page10' && pageId!='page12' && pageId!='page13'&& pageId!='page14' && pageId!='page16'){
     nextPage.classList.add('page-transition-in');
+  }else if(pageId=='page12'||pageId=='page13'){
+    curPage.classList.add('disappear');
+    nextPage.classList.add('appear');
   }
   
   if (pageId === 'page0') {
