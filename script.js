@@ -6,19 +6,22 @@
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCzDabBMOoijaRjE_IaliYYXcjImZCiK4k",
-  authDomain: "questionnaire-3a4a0.firebaseapp.com",
-  projectId: "questionnaire-3a4a0",
-  storageBucket: "questionnaire-3a4a0.appspot.com",
-  messagingSenderId: "796199687011",
-  appId: "1:796199687011:web:4b36cfbdaa18e2b03ff956",
-  measurementId: "G-Y8LKHVJ0ES"
-};
+// import firebase from "firebase/compat/app";
+// Required for side-effects
+// import "firebase/firestore";
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCzDabBMOoijaRjE_IaliYYXcjImZCiK4k",
+//   authDomain: "questionnaire-3a4a0.firebaseapp.com",
+//   projectId: "questionnaire-3a4a0",
+//   storageBucket: "questionnaire-3a4a0.appspot.com",
+//   messagingSenderId: "796199687011",
+//   appId: "1:796199687011:web:4b36cfbdaa18e2b03ff956",
+//   measurementId: "G-Y8LKHVJ0ES"
+// };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+// const db = firebase.firestore();
 
 const audioElement = document.getElementById('bg-audio');
 const muteButton = document.getElementById('mute-button');
@@ -206,51 +209,89 @@ function showPage(pageId,TF) {
 }
 
 function showResult() {
+  // let arrow1=document.getElementById("arrow1");
+  // let arrow2=document.getElementById("arrow2");
+  // let result1=document.getElementById("result1");
+  // let result2=document.getElementById("result2");
+  // arrow1.addEventListener("click",function(){
+  //   arrow1.style.display='none';
+  //   result1.style.display='none';
+  //   arrow2.style.display='block';
+  //   result2.style.display='block';
+  //   if (result1.classList.contains('up')) {
+  //     result1.classList.remove('up');
+  //     result2.classList.remove('up');
+  //   } else {
+  //     result1.classList.add('up');
+  //     result2.classList.add('up');
+  //   }
+  // })
+  // arrow2.addEventListener("click",function(){
+  //   arrow2.style.display='none';
+  //   result2.style.display='none';
+  //   arrow1.style.display='block';
+  //   result1.style.display='block';
+  //   if (result2.classList.contains('down')) {
+  //     result1.classList.remove('down');
+  //     result2.classList.remove('down');
+
+  //   } else {
+  //     result2.classList.add('down');
+  //     result1.classList.add('down');
+  //   }
+  // })
+
   const pages = document.querySelectorAll('.resultpage');
-let currentPage = 0;
-let startY = 0;
-let endY = 0;
-function handleSwipe() {
-  const deltaY = endY - startY;
-
-  if (deltaY > 50 && currentPage > 0) {
-    // 向上滑动，显示上一页
-    pages[currentPage].classList.add('hidden');
-    currentPage--;
-    pages[currentPage].classList.remove('hidden');
-  } else if (deltaY < -50 && currentPage < pages.length - 1) {
-    // 向下滑动，显示下一页
-    pages[currentPage].classList.add('hidden');
-    currentPage++;
-    pages[currentPage].classList.remove('hidden');
+  let currentPage = 0;
+  let startY = 0;
+  let endY = 0;
+  function handleSwipe() {
+    const deltaY = endY - startY;
+  
+    if (deltaY > 50 && currentPage > 0) {
+      // 向上滑动，显示上一页
+      pages[currentPage].classList.add('hidden');
+      currentPage--;
+      pages[currentPage].classList.remove('hidden');
+    } else if (deltaY < -50 && currentPage < pages.length - 1) {
+      // 向下滑动，显示下一页
+      pages[currentPage].classList.add('hidden');
+      currentPage++;
+      pages[currentPage].classList.remove('hidden');
+    }
   }
-}
-document.addEventListener('touchstart', function(event) {
-  startY = event.touches[0].clientY;
-});
-
-document.addEventListener('touchend', function(event) {
-  endY = event.changedTouches[0].clientY;
-  handleSwipe();
-});
-pages[currentPage].classList.remove('hidden');
-
-//   const pages = document.querySelectorAll('.resultpage');
-//   let currentPage = 0;
-
-//     document.addEventListener('keydown', function(event) {
-//   if (event.key === 'ArrowDown' && currentPage < pages.length - 1) {
-//     // 向下滚动，隐藏当前页并显示下一页
-//     pages[currentPage].classList.add('hidden');
-//     currentPage++;
-//     pages[currentPage].classList.remove('hidden');
-//   } else if (event.key === 'ArrowUp' && currentPage > 0) {
-//     // 向上滚动，隐藏当前页并显示上一页
-//     pages[currentPage].classList.add('hidden');
-//     currentPage--;
-//     pages[currentPage].classList.remove('hidden');
-//   }
-// });
+  document.addEventListener('touchstart', function(event) {
+    startY = event.touches[0].clientY;
+  });
+  
+  document.addEventListener('touchend', function(event) {
+    endY = event.changedTouches[0].clientY;
+    handleSwipe();
+  });
+  document.addEventListener('mousedown', function (event) {
+    isDragging = true;
+    startY = event.clientY;
+  });
+  
+  document.addEventListener('mousemove', function (event) {
+    if (isDragging) {
+      endY = event.clientY;
+    }
+  });
+  
+  document.addEventListener('mouseup', function () {
+    if (isDragging) {
+      isDragging = false;
+      handleSwipe();
+    }
+  });
+  
+  // 防止鼠标右键点击时打断滑动
+  document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+  });
+  pages[currentPage].classList.remove('hidden');
+  
  let correctTF=0;
  let correctslider=0;
  let sliderv=["10344","7050","0"];
@@ -264,7 +305,8 @@ pages[currentPage].classList.remove('hidden');
     correctslider+=1
   }
  }
-
+ let percen=(correctTF+correctslider)/11*100;
+ percen=Math.round(percen * 100) / 100;
   document.getElementById('result').textContent = '在这次测试中，你观赏了50%的弃作，xx%的AI作品，xx%的established artist的作品。 ';
   // var longestTime=0;
   // for(let i=0;i<questionTimes.length-1;i++){
@@ -286,7 +328,22 @@ pages[currentPage].classList.remove('hidden');
   //   countTF[TFQuestion[i]]++
   // }
 
-  document.getElementById('TFQuestions').textContent = `你识别出了${correctTF}个正确的弃作，正确率${correctTF/(countTF[1]+countTF[0])*100}%`
+  document.getElementById('TFQuestions').textContent = `测试中你选择出了${correctTF}个正确的弃作或最高价值作品，于滑轨题中估计对了${correctslider}个作品的价格，总正确率是${percen}%`
+
+  db.collection("users").doc(new Date.getTime()+Math.random()).set({
+    选择题: TFQuestion,
+    滑轨题: SliderQuestion,
+    正确选择题数: correctTF,
+    正确滑轨题数量: correctslider,
+    正确率: percen,
+})
+.then(() => {
+    console.log("Document successfully written!");
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
+});
+
 }
 
 function backPage(pageId) {

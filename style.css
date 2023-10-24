@@ -15,6 +15,9 @@
     height: 50px;
     animation: spin 2s linear infinite; /* 使用CSS动画 */
   }
+  img {
+    -webkit-user-drag: none;
+  }
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -267,25 +270,130 @@
     top:0px;
     text-shadow: 10px 3px 10px #FC0;
   }
-  
-  .resultpage {
-    height: 100vh; /* 单个页面的高度 */
-    display: flex;
+
+  #arrow1{
+    position:fixed;
+    font-size:10vh;
+    color:rgb(255, 204, 0);
+    top: -30px;
+    left:40vw;
+    right:40vw;
+    transform: rotate(-90deg);
+    text-shadow: 1px 1px 1px #49a8c4;
+    z-index:10;
+    transition: 0.3s color;
+    animation: float 1s ease-in-out infinite;
+  }
+  #arrow2{
+    position:fixed;
+    font-size:10vh;
+    color:rgb(250, 250, 250);
+    bottom: -30px;
+    left:40vw;
+    right:40vw;
+    transform: rotate(-90deg);
+    text-shadow: 1px 1px 1px #49a8c4;
+    z-index:10;
+    transition: 0.3s color;
+    animation: float 1s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%{
+      transform:rotate(90deg) translateX(0.5px);
+    }50%{
+      transform: rotate(90deg) translateX(-6px);
+    }
+    100%{
+      transform:rotate(90deg) translateX(0);
+    }
+  }
+  /* #arrow1:hover{
+    color:white;
+  }
+  #arrow2:hover{
+
+    color:#49a8c4;
+  } */
+  #tip{
+    position: fixed;
+    color:rgba(255, 255, 255, 0.873);
+    text-shadow: 2px 2px 2px #49a7c4;
+    font-size: 12vw;
+    /* rotate: 90deg; */
+    opacity: 0;
+    animation: disappear 5s, float 5s;
+    top:40vh;
+    justify-content: center;
+    z-index: 5;
+
+
+  }
+  #poster{
+    position: absolute;
+    top:0;
+    width:100vw;
+    height:100vh;
+  }
+  .result{
+    position: fixed;
+    font-size: 4vw;
+    top:10%;
+    left:10%;
+    right:10%;
+}
+.resultpage {
+  height: 100vh; /* 单个页面的高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vh;
+  background-color: #f0f0f0;
+  transition: opacity 0.5s;
+}
+
+.resultpage.hidden {
+  opacity: 0; /* 隐藏页面 */
+}
+.resultpage body{
+  margin: 0;
+padding: 0;
+height: 200vh; /* 页面高度的总和 */
+}
+/* .down{
+  transform:translateY(100vh);
+}
+.up{
+  transform:translateY(-100vh);
+}
+#result1{
+  display:block;
+  animation: up 2s ease, down 2s ease;
+}
+#result2{
+  display:none;
+  animation: up 2s ease, down 2s ease;
+} */
+  /* .resultpage {
     align-items: center;
     justify-content: center;
     font-size: 2vh;
     background-color: #f0f0f0;
     transition: opacity 0.5s;
-  }
+  } */
+  /* #page17 .down{
+    transform: translateY(-100vh);
+  } */
   
-  .resultpage.hidden {
-    opacity: 0; /* 隐藏页面 */
-  }
-  .resultpage body{
-    margin: 0;
+  /* .resultpage.hidden {
+    opacity: 0;  */
+  
+  /* #result1{
+  position: absolute;
+  top:0vh;
+  margin: 0;
   padding: 0;
-  height: 200vh; /* 页面高度的总和 */
-  }
+  height: 100vh; 
+  } */
 body {
     /* margin: 0;
     display: flex;
@@ -298,6 +406,15 @@ body {
     font-size:large;
     overflow: hidden;
     user-select: none;
+    -webkit-touch-callout: none;
+
+-webkit-user-select: none;
+
+-khtml-user-select: none;
+
+-moz-user-select: none;
+
+-ms-user-select: none;
   }
   #q1,#q2{
     position:absolute;
@@ -617,12 +734,6 @@ body {
     flex-direction: row;
     
 } */
-.result{
-    position: fixed;
-    top:10%;
-    left:10%;
-    right:10%;
-}
 
 .button {
     font-size: large;
@@ -717,12 +828,13 @@ body {
 
 
 #page4 p {
+  position: absolute;
     display:inline-block;
-    margin-left:10%;
-    width: 45%;
-    height: 20%;
+    margin-left:10vw;
+    width: 45vw;
+    height: 20vh;
     font-size: medium;
-    margin-top: 20%;
+    top: 5vh;
 }
 /* #page4 .button-container {
     position: absolute;
@@ -735,26 +847,27 @@ body {
 #page4 #b1{
   position: absolute;
   right:35vw;
-  top:12vh;
+  top:14vh;
   font-size: 2rem;
   text-shadow: 6px 6px 5px #49a8c4;
 }
 #page4 #b2{
   position: absolute;
   right:10vw;
-  top:12vh;
+  top:14vh;
   font-size: 2rem;
   text-shadow: 6px 6px 5px #49a8c4;
 }
 
 
 #page5 p {
+  position: absolute;
   display:inline-block;
   margin-left:15%;
-  width: 45%;
-  height: 20%;
+  width: 45vw;
+  height: 20vh;
   font-size: medium;
-  margin-top: 29%;
+  top: 10vh;
 }
 /* #page5 .button-container {
     position: absolute;
@@ -768,14 +881,14 @@ body {
 #page5 #b1{
   position: absolute;
   right:54vw;
-  top:25vh;
+  top:24vh;
   font-size: 2rem;
   text-shadow: 6px 6px 5px #49a8c4;
 }
 #page5 #b2{
   position: absolute;
   right:24vw;
-  top:25vh;
+  top:24vh;
   font-size: 2rem;
   text-shadow: 6px 6px 5px #49a8c4;
 }
@@ -1035,7 +1148,7 @@ animation-delay: 7.5s;
   position: absolute;
   font-size: 3vh;
   left:25vw;
-  top:40vh;
+  top:45vh;
   text-shadow: 1px 1px 2px #49a7c4;
   opacity:0;
   animation: disappear 5s;
@@ -1319,7 +1432,7 @@ animation-delay: 7.5s;
     height: 50%;
     opacity: 0;
     background-image: url('pic/p24.jpeg'); /* 设置你的图片路径 */
-    background-size: 100% auto;
+    background-size: 100% 200%;
      /* 上半部分使用center top，下半部分使用center bottom */
     animation-duration: 4s;
     animation-timing-function: ease;
@@ -1390,11 +1503,12 @@ animation-delay: 7.5s;
   background: none;
   color:black;
   border: 0;
-  font-size: 10vh;
-  top:28vh;
-  left:77vw;
+  font-size: 80px;
+  top:27vh;
+  right:8vw;
   rotate:15deg;
   text-shadow: #49a7c4 2px 2px 2px;
+  z-index: 5;
   transition: color 0.5s ease;
 }
 #nextpic:hover{

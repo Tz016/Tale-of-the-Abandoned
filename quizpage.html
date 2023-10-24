@@ -95,7 +95,7 @@
         <!-- 第二页内容 -->
         <p>1/4 是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id='b1' onclick="showPage('page3',-1)">💰</button>
+            <button class='button' id='b1' onclick="showPage('page3',-2)">💰</button>
             <button class='button' id="b2" onclick="showPage('page3',-2)">🗑️</button>
         <!-- -1正 -->
         </div>
@@ -106,8 +106,8 @@
         <!-- 第三页内容 -->
         <p>2/4 是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id='b1' onclick="showPage('page4',-2)">💰</button>
-            <button class='button' id='b2' onclick="showPage('page4',-1)">🗑️</button>
+            <button class='button' id='b1' onclick="showPage('page4',-1)">💰</button>
+            <button class='button' id='b2' onclick="showPage('page4',-2)">🗑️</button>
         </div>
         <button class='back' id="TFback" onclick="backPage('page3')">&lt;Back</button>
     </div>
@@ -116,8 +116,8 @@
         <!-- 第三页内容 -->
         <p>3/4 是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id='b1' onclick="showPage('page5',-2)">💰</button>
-            <button class='button' id='b2' onclick="showPage('page5',-1)">🗑️</button>
+            <button class='button' id='b1' onclick="showPage('page5',-1)">💰</button>
+            <button class='button' id='b2' onclick="showPage('page5',-2)">🗑️</button>
         </div>
         <button class='back' id="TFback" onclick="backPage('page4')">&lt;Back</button>
     </div>
@@ -125,8 +125,8 @@
         <!-- 第三页内容 -->
         <p>4/4 是“成功”的艺术品还是弃作？</p>
         <div class="button-container">
-            <button class='button' id="b1" onclick="showPage('page6',-1)">💰</button>
-            <button class='button' id="b2" onclick="showPage('page6',-2)">🗑️</button>
+            <button class='button' id="b1" onclick="showPage('page6',-2)">💰</button>
+            <button class='button' id="b2" onclick="showPage('page6',-1)">🗑️</button>
         </div>
         <button class='back' id="TFback" onclick="backPage('page5')">&lt;Back</button>
     </div>
@@ -262,18 +262,23 @@
             <img id="bggif" src="pic\mySketch (1).gif">
         </div>
         <div class="result">
-            <h1>这是根据您的选择生成的结果：</h1>
+            <h1>经过鸽子的严密计算…
+            </h1>
             <p id="result"></p>
-            <p id="longestTimeQuestion"></p>
+            <!-- <p id="longestTimeQuestion"></p> -->
             <p id="TFQuestions"></p>
         </div>
-        </section>
-        <section class="resultpage" id="result2">
-        <img id="poster" src="pic/poster.jpg">
+        <div id="arrow1">《</div>
+        <div id="tip">滑动屏幕</div>
     </section>
-
-    </div>
+        <section class="resultpage" id="result2">
+            <div id="arrow2">》</div>
+        <img id="poster" src="pic/poster.jpg">
+        </div>
     
+    </section>
+    <script>import {firestore} from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js'</script>
+
     <!-- <div class="coordinates" id="coordinates">Mouse Coordinates: (0, 0)</div> -->
 </body>
 
