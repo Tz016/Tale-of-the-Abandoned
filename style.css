@@ -367,7 +367,6 @@
   }
   .result{
     position: fixed;
-    font-size: 4vw;
     text-shadow: 1px 1px 1px #f0f0f0;
     padding:3px;
     margin:5px;
@@ -375,12 +374,14 @@
                 -10px -10px 10px #FC0, 
                 inset 0 0 20px white;
     top:10vh;
+    bottom:40vh;
     left:10%;
     right:10%;
+    font-size: auto;
 }
 .message{
   position: absolute;
-  top:70vh;
+  top:65vh;
   left:14vw;
   bottom:2vh;
   z-index:15;
