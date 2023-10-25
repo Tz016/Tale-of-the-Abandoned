@@ -378,7 +378,7 @@
     left:10%;
     right:10%;
     font-size: 1 rem;
-    overflow-y: scroll;
+    overflow: scroll;
 }
 .message{
   position: absolute;
