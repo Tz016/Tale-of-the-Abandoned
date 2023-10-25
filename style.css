@@ -352,6 +352,25 @@
     height:100vh;
     z-index:1;
   }
+  #info{
+    position:fixed;
+    font-size:0.8rem;
+    color:rgb(255, 204, 0);
+    top: 20px;
+    left:20vw;
+    width:20vw;
+    animation: float2 1s ease-in-out infinite;
+  }
+  @keyframes float2{
+    0%{
+      transform:translateY(0.5px);
+    }50%{
+      transform:  translateY(-6px);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
   #result1{
     z-index:3;
   }
