@@ -369,6 +369,7 @@
     position: fixed;
     text-shadow: 1px 1px 1px #f0f0f0;
     padding:3px;
+    overflow-x: scroll;
     margin:5px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5), 
                 -10px -10px 10px #FC0, 
@@ -377,8 +378,9 @@
     bottom:40vh;
     left:10%;
     right:10%;
-    font-size: 1 rem;
-    overflow: scroll;
+    font-size:1 rem;
+    z-index:16;
+   
 }
 .message{
   position: absolute;
