@@ -515,6 +515,7 @@ body {
     font-size: 1.2rem;
     margin: 10vw;
     top:17vh;
+    z-index:10;
   }
  
   #image1,#image2,#image3,#image4,#image5,#image6,#image7,#p9,#p10{
@@ -1184,7 +1185,7 @@ body {
   height:100vh;
   width: 100vw;;
   opacity: 0;
-  animation: rubbish 7s;
+  animation: rubbish 9s;
   animation-delay: 10.5s;
 }
 #ljx{
@@ -1195,7 +1196,7 @@ body {
   height:auto;
   font-size: 1rem;
   opacity:0;
-  animation:disappear 4s;
+  animation:disappear 5s;
   animation-delay:13.5s;
 }
 

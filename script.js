@@ -317,7 +317,7 @@ async function showResult() {
   }
  }
  for(let i=0;i<3;i++){
-  if(SliderQuestion[i]==sliderv[i]){
+  if(Math.abs(SliderQuestion[i]-sliderv[i])<=500){
     correctslider+=1
   }
  }
@@ -328,8 +328,8 @@ const totaldata=await window.record();
   console.log(totaldata);
   document.getElementById('result').textContent = '在这次测试中，你观赏了50%的弃作，xx%的AI作品，xx%的established artist的作品。 ';
 
-  document.getElementById('TFQuestions').textContent = `测试中你选择出了${correctTF}副正确的弃作或市场价值最高作品；于滑轨题中你估计的作品价格分别为${SliderQuestion[0]}$、${SliderQuestion[1]}$、${SliderQuestion[2]}$，实际三副分别为${sliderv[0]}$、${sliderv[1]}$、${sliderv[2]}$，估计对了${correctslider}个作品的价格。你的总正确率是${percen}%~ 🐦`
-  document.getElementById('others').textContent=`现本测试被完成过${totaldata[0]}次，平均每次大家能判别出${totaldata[1]}副弃作或市场价值最高作品；滑轨三幅画作被大家估计的平均价值分别为${totaldata[4]}$、${totaldata[5]}$、${totaldata[6]}$，平均正确个数为${totaldata[2]}。测试的平均总正确率是${totaldata[3]}% ^o^`
+  document.getElementById('TFQuestions').textContent = `测试中你选择出了${correctTF}副正确的弃作或市场价值最高作品；于滑轨题中你估计的作品价格分别为${SliderQuestion[0]}$、${SliderQuestion[1]}$、${SliderQuestion[2]}$，实际三副分别为${sliderv[0]}$、${sliderv[1]}$、${sliderv[2]}$，估计对了${correctslider}个作品的价格（正负五百以内即算正确）。你的总正确率是${percen}%~ 🐦`
+  document.getElementById('others').textContent=`现本测试被完成过${totaldata[0]}次，平均每次大家能判别出${totaldata[1]}副弃作或市场价值最高作品；滑轨三幅画作被大家估计的平均价值分别为${totaldata[4]}$、${totaldata[5]}$、${totaldata[6]}$，平均正确个数为${totaldata[2]}（正负五百以内即算正确）。测试的平均总正确率是${totaldata[3]}% ^o^`
 
 
 
