@@ -384,7 +384,7 @@
   position: absolute;
   top:65vh;
   left:14vw;
-  bottom:2vh;
+  bottom:10vh;
   z-index:15;
 }
 .message h1{
@@ -1240,7 +1240,7 @@ animation-delay: 7.5s;
   position: absolute;
   font-size: 3vh;
   left:25vw;
-  top:45vh;
+  top:35vh;
   text-shadow: 1px 1px 2px #49a7c4;
   opacity:0;
   animation: disappear 5s;
