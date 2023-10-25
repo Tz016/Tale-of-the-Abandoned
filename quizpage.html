@@ -267,6 +267,14 @@
             <p id="result"></p>
             <!-- <p id="longestTimeQuestion"></p> -->
             <p id="TFQuestions"></p>
+            <p id="others"></p>
+        </div>
+        <div class="message">
+        <h1>有什么话想和鸽子说吗</h1>
+        <input type="text" id="message" placeholder="鸽子：请讲">
+        <button id="submit">发送！</button>
+        <div id="messages">
+    </div>
         </div>
         <div id="arrow1">《</div>
         <div id="tip">滑动屏幕</div>
@@ -287,7 +295,7 @@
   
       // Add Firebase products that you want to use
       import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
-      import { getFirestore,doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+      import { updateDoc,getFirestore,doc, setDoc,collection, getDocs,getDoc } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
       const firebaseConfig = {
 apiKey: "AIzaSyCzDabBMOoijaRjE_IaliYYXcjImZCiK4k",
 authDomain: "questionnaire-3a4a0.firebaseapp.com",
@@ -299,18 +307,50 @@ measurementId: "G-Y8LKHVJ0ES"
 };
 const app=initializeApp(firebaseConfig)
 const db = getFirestore(app);
+const messages=[];
+var uid=`${new Date().getTime()}-${Math.random()}`;
+const messageInput = document.getElementById("message");
+const submitButton = document.getElementById("submit");
+const messagesDiv = document.getElementById("messages");
+submitButton.addEventListener("click",addMessage);
+async function addMessage(){
+    const message=messageInput.value;
+    console.log(message);
+    if(message.trim()!=""){
+        const docRef=doc(db,"users",uid)
+        const docSnap = await getDoc(docRef);
+        console.log(docSnap.data())
+        if(!("message" in docSnap.data())){
+            console.log(docSnap.data())
+        await updateDoc(doc(db,"users",uid),{message:message});
+    }else{
+        await updateDoc(doc(db,"users",uid),{message:`${docSnap.data()["message"]} | ${message}`});
+    }
+        messages.push(message);
+        displayMessages();
+        messageInput.value="";
+    }
+}
+function displayMessages() {
+            messagesDiv.innerHTML = "";
+            messages.forEach((message, index) => {
+                const messageElement = document.createElement("div");
+                messageElement.textContent = message;
+                messagesDiv.appendChild(messageElement);
+            });
+        }
+
 // import { TFQuestion,SliderQuestion,correctTF,correctslider,percen } from './script.js';
 // db.collection("users").doc(new Date.getTime()+Math.random()).set(
-window.record=async function record(){
+window.record=await async function record(){
 const docData={
     选择题: TFQuestion,
     滑轨题: SliderQuestion,
     正确选择题数: correctTF,
-    正确滑轨题数量: correctslider,
+    正确滑轨题数: correctslider,
     正确率: percen,
 }
 // )
-const uid=`${new Date().getTime()}-${Math.random()}`
 await setDoc(doc(db,"users",uid),docData)
 .then(() => {
     startresult=0;
@@ -319,9 +359,42 @@ await setDoc(doc(db,"users",uid),docData)
 .catch((error) => {
     console.error("Error writing document: ", error);
 });
-
+var times=0;
+var totalTF=0;
+var totalslider=0;
+var totalslider1=0;
+var totalslider2=0;
+var totalslider3=0;
+var totalpercen=0;
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+    if(doc.id!="不要删"){
+  const iddata=doc.data();
+  times+=1;
+  totalTF+=iddata["正确选择题数"];
+  totalslider1+=iddata["滑轨题"][0];
+  totalslider2+=iddata["滑轨题"][1];
+  totalslider3+=iddata["滑轨题"][2];
+  totalslider+=iddata["正确滑轨题数"];
+  totalpercen+=iddata["正确率"];
+  try{if("message" in iddata){messages.push(iddata["message"])
+console.log(messages)}
+}catch(err){
+    console.log("no message")
 }
-        </script>
+    }
+});
+totalTF=Math.round(totalTF/times * 100) / 100;
+totalslider=Math.round(totalslider/times * 100) / 100;
+totalslider1=Math.round(totalslider1/times * 100) / 100;
+totalslider2=Math.round(totalslider2/times * 100) / 100;
+totalslider3=Math.round(totalslider3/times * 100) / 100;
+totalpercen=Math.round(totalpercen/times * 100) / 100;
+displayMessages()
+return [times, totalTF,totalslider,totalpercen,totalslider1,totalslider2,totalslider3];
+}
+console.log("end")
+ </script>
     
 
     <!-- <div class="coordinates" id="coordinates">Mouse Coordinates: (0, 0)</div> -->

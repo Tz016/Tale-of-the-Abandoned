@@ -155,11 +155,11 @@ function showPage(pageId,TF) {
   }else if(pageNumber==5){
     TFQuestion[3]=TF;
   }else if(pageNumber==7){
-    SliderQuestion[0]=TF.innerText;
+    SliderQuestion[0]=parseInt(TF.innerText,10);
   }else if(pageNumber==8){
-    SliderQuestion[1]=TF.innerText;
+    SliderQuestion[1]=parseInt(TF.innerText,10);
   }else if(pageNumber==9){
-    SliderQuestion[2]=TF.innerText;
+    SliderQuestion[2]=parseInt(TF.innerText,10);
   }else if(pageNumber==11){
     TFQuestion[4]=TF;
   }else if(pageNumber==12){
@@ -169,10 +169,6 @@ function showPage(pageId,TF) {
   }else if(pageNumber==15){
     TFQuestion[7]=TF;
   }
-    console.log("TF")
-    console.log(TFQuestion)
-    console.log("Slider")
-    console.log(SliderQuestion)
   //   questionpages.includes(pageNumber) && TF!=-66){
   //   TFQuestion.push(TF);
   //   console.log(TF)
@@ -220,7 +216,7 @@ var correctTF=0;
 var correctslider=0;
 var percen=0.00;
 
-function showResult() {
+async function showResult() {
 
   // startresult=1;
   let arrow1=document.getElementById("arrow1");
@@ -256,7 +252,6 @@ function showResult() {
   // })
 
   const pages = document.querySelectorAll('.resultpage');
-  console.log(pages);
   let currentPage = 0;
   let startY = 0;
   let endY = 0;
@@ -329,29 +324,12 @@ function showResult() {
 //  let percen=(correctTF+correctslider)/11*100;
   percen=(correctTF+correctslider)/11*100;
   percen=Math.round(percen * 100) / 100;
-  window.record();
+const totaldata=await window.record();
+  console.log(totaldata);
   document.getElementById('result').textContent = '在这次测试中，你观赏了50%的弃作，xx%的AI作品，xx%的established artist的作品。 ';
-  // var longestTime=0;
-  // for(let i=0;i<questionTimes.length-1;i++){
-  //   calculateTime[i]=(questionTimes[i+1]-questionTimes[i])/1000
 
-  // }
-  // const longestTime=Math.max.apply(null, calculateTime);
-  // const longestTimeQuestion=calculateTime.indexOf(longestTime)+1
-  // console.log(longestTimeQuestion)
-  // console.log(longestTime)
-  // console.log(calculateTime)
-  // if (longestTime>0.5) {
-  //   document.getElementById('longestTimeQuestion').textContent = `你在看第${longestTimeQuestion} 道的时候犹豫了很久${longestTime}秒，是觉得它们都是很完善的作品吗？`;
-  // } else {
-  //   document.getElementById('longestTimeQuestion').textContent = "No questions answered yet.";
-  // }
-  // let countTF={1:0,0:0}
-  // for (let i=0;i<TFQuestion.length;i++){
-  //   countTF[TFQuestion[i]]++
-  // }
-
-  document.getElementById('TFQuestions').textContent = `测试中你选择出了${correctTF}个正确的弃作或最高价值作品，于滑轨题中估计对了${correctslider}个作品的价格，总正确率是${percen}%`
+  document.getElementById('TFQuestions').textContent = `测试中你选择出了${correctTF}副正确的弃作或市场价值最高作品；于滑轨题中你估计的作品价格分别为${SliderQuestion[0]}$、${SliderQuestion[1]}$、${SliderQuestion[2]}$，实际三副分别为${sliderv[0]}$、${sliderv[1]}$、${sliderv[2]}$，估计对了${correctslider}个作品的价格。你的总正确率是${percen}%~ 🐦`
+  document.getElementById('others').textContent=`现本测试被完成过${totaldata[0]}次，平均每次大家能判别出${totaldata[1]}副弃作或市场价值最高作品；滑轨三幅画作被大家估计的平均价值分别为${totaldata[4]}$、${totaldata[5]}$、${totaldata[6]}$，平均正确个数为${totaldata[2]}。测试的平均总正确率是${totaldata[3]}% ^o^`
 
 
 

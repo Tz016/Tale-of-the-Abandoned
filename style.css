@@ -40,6 +40,13 @@
 }
 
 @media (max-aspect-ratio: 5/4) {
+  #notes{
+    position: absolute;
+    bottom: 0;
+    left:3px;
+    font-size: 1.5vh;
+    color: #0000008e;
+  }
   h2{
     position: absolute;
     writing-mode: horizontal-tb;
@@ -48,6 +55,7 @@
     right:2vw;
     font-size: 2.5vh;
     text-align: center;
+    text-shadow: 10px -5px 2px rgba(255, 204, 0, 0.355);
 
   }
   #q0{
@@ -65,12 +73,12 @@
   }
   #q-1{
     position: absolute;
-    font-size:1.8vh;
+    font-size:1.7vh;
     writing-mode: vertical-rl;
     text-orientation: upright;
     top:29vh;
     right:8vw;
-    height:auto;
+    height:75vh;
   }
   /* #type{
     position: absolute;
@@ -111,6 +119,13 @@
 
 /* 使用媒体查询，在大屏幕上应用不同的样式 */
 @media (min-aspect-ratio: 5/4) {
+  #notes{
+    color: rgba(0, 0, 0, 0.807);
+    position: absolute;
+    bottom: 0;
+    left:5px;
+    font-size: 1.5vw;
+  }
   #type{
     position: absolute;
     bottom:40vh;
@@ -130,6 +145,7 @@
       text-align: center;
       left:12vw;
       width: 78vw;
+      text-shadow: 10px -5px 2px rgba(255, 204, 0, 0.355);
     }
    #start{
     bottom:30%;
@@ -342,13 +358,78 @@
   /* #result2{
     display: none;
   } */
+  .result h1{
+    color: #000000;
+    text-shadow: 1px 1px 1px #49a7c4,
+                  -1px -1px 1px white;
+    margin-left: 3px;
+
+  }
   .result{
     position: fixed;
     font-size: 4vw;
-    top:10%;
+    text-shadow: 1px 1px 1px #f0f0f0;
+    padding:3px;
+    margin:5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5), 
+                -10px -10px 10px #FC0, 
+                inset 0 0 20px white;
+    top:10vh;
     left:10%;
     right:10%;
 }
+.message{
+  position: absolute;
+  top:70vh;
+  left:14vw;
+  bottom:2vh;
+  z-index:15;
+}
+.message h1{
+  position: absolute;
+  white-space: nowrap;
+  bottom:3vh;
+  left:0vw;
+  font-size: 3vh;
+  text-shadow: 1px 1px 1px #FC0;
+}
+#submit:hover{
+  font-style: italic;
+  box-shadow: 1px 1px 2px #000000;
+}
+#submit{
+  position: absolute;
+  bottom:1vh;
+  left:55vw;
+  height:4vh;
+  white-space: nowrap;
+  width:auto;
+  background-color: #ffffff67;
+  border-radius: 10px;
+  color: #FC0;
+  box-shadow: 1px 1px 1px #f0f0f0,
+              -1px -1px 1px #49a7c4;
+  border-style: dotted;
+  font-family: 'uploadfont', sans-serif;
+}
+#messages{
+  position: absolute;
+  overflow: scroll;
+  top:0;
+  max-height:19vh;
+  width:70vw;
+  font-style: oblique;
+}
+
+input{
+  position: absolute;
+  bottom:1vh;
+  height:3vh;
+  left:0vw;
+  width:50vw;
+  font-family: 'uploadfont', sans-serif;
+}
+
 .resultpage {
   height: 100vh; /* 单个页面的高度 */
   display: flex;
