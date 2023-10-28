@@ -71,10 +71,10 @@
   #q0:hover{
     font-size:1.8vh;
   }
-  #q1{
+  #q-1{
     position: absolute;
     font-size:1.7vh;
-    /* writing-mode: vertical-rl; */
+    writing-mode: vertical-rl;
     text-orientation: upright;
     top:29vh;
     right:8vw;
