@@ -107,10 +107,10 @@ window.addEventListener('resize', () => {
 );
 
 
-// var anim = document.querySelector("#image7");
-// anim.addEventListener("animationend",function(e){
-//   showPage('page1',-5);
-// },false);
+var anim = document.querySelector("#image7");
+anim.addEventListener("animationend",function(e){
+  showPage('page1',-5);
+},false);
 var anim1 = document.querySelector("#p10");
 anim1.addEventListener("animationend",function(e){
   showPage('page2',-5);

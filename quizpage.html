@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta property="og:title" content="Tale of the Abandoned">
     <meta property="og:description" content="这是一个“功利”的关于艺术鉴赏力的但又不和艺术沾边的测试，看看你的艺术品味符不符合艺术市场中“内行”的标准。">
-    <meta property="og:image" content="https://tz016.github.io/Tale-of-the-Abandoned/pic/share.jpg"/>
+    <meta property="og:image" content="https://tz016.github.io/Tale-of-the-Abandoned/pic/ico.jpg"/>
+    <link rel="icon" href="pic/birdfavicon.ico" type="image/x-icon">
     <meta name="viewport"
     content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -68,7 +69,7 @@
       </audio>
       <button id="mute-button">🔊</button>
       <div class="loader"></div>
-    <div class="book" id="page0" style="display: none;">
+    <div class="book" id="page0" >
         <div class="intro">
             <p id="t1">我们在纽约的艺术学院的垃圾堆中找到了许多被遗弃的艺术品，和它们形成鲜明对比的是这座世界艺术中心之都永不落幕的大小展览舞台。</p>
             <p id="t2">一只饱受艺术气息熏陶的曼哈顿土著鸽子将带领你遍观不同命运不同价位的画作，考察你对商业上“成功”和“失败”艺术品的判断力。</p>
@@ -250,7 +251,7 @@
         </div>
         <button class='back' id="TFback" onclick="backPage('page15')">&lt;Back</button>
     </div>
-    <div class="book" id="page16" style="display: block;">
+    <div class="book" id="page16" style="display: none;">
         <img id="jingyi" src="pic/page15.jpg">
         <img id="p27" src="pic/p27.jpg">
         <p id="jingyitf"></p>
