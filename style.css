@@ -1272,17 +1272,26 @@ position: absolute;
 left:-35vw;
 top:-60vh;
 opacity:0;
-animation: disappear 19s;
+animation: disappear 30s;
 animation-delay: 9.5s;
 }
 #prepare{
   position: absolute;
   font-size: 2vh;
   left:10vw;
-  top:35vh;
+  right:10vw;
+  top:25vh;
   text-shadow: 1px 1px 1px #49a7c460;
   opacity:0;
-  animation: disappear 14s;
+  animation: disappear 25s;
+  animation-delay: 14.5s;
+}
+#curation{
+  position: absolute;
+  width:100%;
+  bottom:10vh;
+  opacity:0;
+  animation: disappear 25s;
   animation-delay: 14.5s;
 }
 #thx{
