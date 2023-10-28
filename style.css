@@ -1230,7 +1230,7 @@ body {
   height:auto;
   font-size: 1rem;
   opacity:0;
-  animation:disappear 7s;
+  animation:disappear 10s;
   animation-delay:14.5s;
 }
 
@@ -1270,17 +1270,17 @@ position: absolute;
 left:-35vw;
 top:-60vh;
 opacity:0;
-animation: disappear 17s;
+animation: disappear 19s;
 animation-delay: 9.5s;
 }
 #prepare{
   position: absolute;
   font-size: 2vh;
-  left:25vw;
+  left:10vw;
   top:35vh;
   text-shadow: 1px 1px 1px #49a7c460;
   opacity:0;
-  animation: disappear 12s;
+  animation: disappear 14s;
   animation-delay: 14.5s;
 }
 #thx{
@@ -1333,6 +1333,9 @@ animation-delay: 9.5s;
   50%{
     opacity:1;
     transform:scale(1) translate(0vw,0vh);
+  }
+  80%{
+    opacity:1;
   }
   
 }
