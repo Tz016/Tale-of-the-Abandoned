@@ -24,12 +24,8 @@
 // const db = firebase.firestore();
 document.querySelectorAll("button").forEach(function(button) {
   button.addEventListener("click", function() {
-      if ("vibrate" in navigator) {
-          // 振动手机，参数是震动的持续时间（以毫秒为单位）
-          navigator.vibrate(200); // 200毫秒的震动
-      } else {
-          alert("抱歉，您的浏览器不支持振动功能。");
-      }
+    button.style.fontStyle = "italic";
+     
   });
 });
 var startresult=0;
