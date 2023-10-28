@@ -71,10 +71,10 @@
   #q0:hover{
     font-size:1.8vh;
   }
-  #q-1{
+  #q1{
     position: absolute;
     font-size:1.7vh;
-    writing-mode: vertical-rl;
+    /* writing-mode: vertical-rl; */
     text-orientation: upright;
     top:29vh;
     right:8vw;
@@ -175,8 +175,8 @@
     font-size:5vw;
     opacity:0;
     z-index: 10;
-    animation: appear 5s;
-    animation-delay:7s;
+    animation: appear 7s;
+    animation-delay:9.2s;
 }
 /* #line1{
   position: absolute;
@@ -189,7 +189,8 @@
    
 @keyframes appear{
   20% { opacity:1 }
-  to { opacity:1  }
+  90% { opacity:1  }
+  100%{opacity:0}
 }
 /* 打印效果 */
 /* @keyframes typing {
@@ -555,12 +556,12 @@ body {
   }
   #t1{
     opacity: 0;
-    animation: introanim1 3s;
+    animation: introanim1 4s;
   }
  #t2{
     opacity: 0;
-    animation: introanim2 5s;
-    animation-delay: 3s;
+    animation: introanim2 5.7s;
+    animation-delay: 4s;
  }
 
   @keyframes introanim1{
@@ -670,29 +671,43 @@ body {
   animation-delay: 4s;
 }
 #image4{
-  animation: floatup 2s ;
+  animation: floatup 3s ;
   animation-delay: 6s;
 }
 #image5{
-  animation: floatup 2s ;
-  animation-delay: 8s;
+  animation: floatup 3s ;
+  animation-delay: 9s;
 }
 #image6{
-  animation: floatup 2s ;
-  animation-delay: 10s;
-}
-#image7{
-  animation: floatup 2s ;
+  animation: floatup 3s ;
   animation-delay: 12s;
 }
+#image7{
+  animation: floatup 3s ;
+  animation-delay: 15s;
+}
 #p9{
-  animation: floatup2 3s ;
+  animation: floatup2 4s ;
 }
 #p10{
-  animation: floatup3 2s ;
-  animation-delay: 2s;
+  animation: floatup3 3s ;
+  animation-delay: 3s;
 }
-
+#q2{
+  animation:colorchange 9s ;
+  color: white;
+}
+@keyframes colorchange{
+0%{
+  color:white;
+}
+40%{
+  color:white;
+}
+100%{
+  color:black;
+}
+}
 #p11{
   top:0px;
     left:0px;
@@ -700,7 +715,7 @@ body {
     width: 100vw;
     height: 100vh;
     opacity: 1;
-    animation: floatup4 6s;
+    animation: floatup4 9s;
 }
 #p11para,#p12para,#p13para{
   position: absolute;
@@ -865,7 +880,7 @@ body {
     background-color: #49a7c47c; 
   }
  #b1,#b2{
-  transition: background-color 1s ease;
+  transition: background-color 0.5s ease;
  }
 .button:hover {
 
@@ -1090,8 +1105,8 @@ body {
   width:100vw;
   z-index:-3;
   opacity: 0;
-  animation: floatup7 4s;
-  animation-delay: 5s;
+  animation: floatup7 8s;
+  animation-delay: 3.8s;
 }
 #q3{
   position:absolute;
@@ -1099,8 +1114,8 @@ body {
   margin:8%;
   font-size: large;
   opacity:0;
-  animation:floatup7 4s;
-  animation-delay:5s;
+  animation:floatup7 8s;
+  animation-delay:3.8s;
 
 }
 /* #p17{
@@ -1195,7 +1210,7 @@ body {
   width:100vw;
   opacity: 0;
   animation: birdperson 4s;
-  animation-delay: 7s;
+  animation-delay: 10s;
 }
 #p26{
   position:absolute;
@@ -1204,8 +1219,8 @@ body {
   height:100vh;
   width: 100vw;;
   opacity: 0;
-  animation: rubbish 9s;
-  animation-delay: 10.5s;
+  animation: rubbish 10.5s;
+  animation-delay: 14s;
 }
 #ljx{
   position:absolute;
@@ -1215,8 +1230,8 @@ body {
   height:auto;
   font-size: 1rem;
   opacity:0;
-  animation:disappear 5s;
-  animation-delay:13.5s;
+  animation:disappear 7s;
+  animation-delay:14.5s;
 }
 
 #jingyi{
@@ -1303,7 +1318,7 @@ animation-delay: 7.5s;
 @keyframes rubbish {
   0%{
     opacity: 1;
-    transform: scale(14) translate(-37vw,-28vh);
+    transform: scale(14) translate(-33vw,-28vh);
   }
   50%{
     opacity:1;
@@ -1569,7 +1584,7 @@ animation-delay: 7.5s;
     background-image: url('pic/p24.jpeg'); /* 设置你的图片路径 */
     background-size: 100% 200%;
      /* 上半部分使用center top，下半部分使用center bottom */
-    animation-duration: 4s;
+    animation-duration: 7s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -1592,7 +1607,7 @@ animation-delay: 7.5s;
   left:25vw;
   width:60vw;
   bottom:30vh;
-  animation: disappear 3s;
+  animation: disappear 6s;
   opacity:0;
   animation-delay: 4s;
 }
@@ -1664,7 +1679,7 @@ animation-delay: 7.5s;
 .q31{
   width:100%;
   height:auto;
-  transition: all 2s ease;
+  transition: all 4s ease-in-out;
 }
 .q31:hover{
   transform: scale(0.8);
