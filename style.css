@@ -114,7 +114,9 @@
       transition: background-color 0.8s ease;
       font-family: 'uploadfont', sans-serif;
   }
- 
+ body{
+  overflow: hidden;
+ }
 }
 
 /* 使用媒体查询，在大屏幕上应用不同的样式 */
