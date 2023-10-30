@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        body{
+            font-size:1rem;
+            overflow: scroll;
+            white-space: nowrap;
+            user-select: text;
+        }
+        #bg{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            z-index: -3;
+        }
+        #tag{
+            text-shadow: 1px 1px 1px #49a8c4;
+            font-size: 1.2rem;
+        }
+        td{
+            border-bottom: 2px dotted #FC0; /* 设置表格底部的边框为 1 像素实线 */
+            padding-left:3rem;
+        }
+        #collectiontable{
+            margin:12px;
+        }
+    </style>
+</head>
+<body>
+    <img id="bg" src="pic/透明背景鸽子.GIF">
+    <h1>Quiz Data</h1>
+    <table id="collectionData">
+        <tr id="tag">
+            <td>Time</td>
+            <td>Comments</td>
+            <td>总正确率</td>
+            <td>判断题正确数</td>
+            <td>判断题具体选项</td>
+            <td>滑轨题正确数</td>
+            <td>滑轨题具体选项</td>
+          </tr>
+    </table>
+    </div>
+      
+</body>
+<script type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
+      
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
+  
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+      import { collection, getFirestore,doc, getDocs} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+      const firebaseConfig = {
+apiKey: "AIzaSyCzDabBMOoijaRjE_IaliYYXcjImZCiK4k",
+authDomain: "questionnaire-3a4a0.firebaseapp.com",
+projectId: "questionnaire-3a4a0",
+storageBucket: "questionnaire-3a4a0.appspot.com",
+messagingSenderId: "796199687011",
+appId: "1:796199687011:web:4b36cfbdaa18e2b03ff956",
+measurementId: "G-Y8LKHVJ0ES"
+};
+const app=initializeApp(firebaseConfig)
+const db = getFirestore(app);
+var collectionTable = document.getElementById("collectionData");
+
+var querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+    var id = doc.id;
+    if(id!="不要删"){
+    var data=doc.data()
+    var comment=data["message"];
+    var percen=data["正确率"]+"%";
+    var slider=data["正确滑轨题数"];
+    var sliders=`(1) ${data["滑轨题"][0]}; (2)${data["滑轨题"][1]}; (3)${data["滑轨题"][2]}; `;
+    var TFs=""
+    for (let i=0;i<=6;i++){
+    if (data["选择题"][i]==-1){
+    TFs+=`(${i+1}) T; `
+    }else if (data["选择题"][i]==-2) 
+    {TFs+=`(${i+1}) F; `
+    }
+    }
+    var TF=data["正确选择题数"];
+
+    
+    //var displaycontent=data.Displaycontent
+
+    var row = document.createElement("tr");
+    if (id!="不要删"){
+        var row = document.createElement("tr");
+        const parts=id.split('-')[0];
+        const timestampInt=parseInt(parts,10);
+        const time = new Date(timestampInt).toString().replace(/\s+\(.+\)$/, '');
+      var texts=[time,comment,percen,TF,TFs,slider,sliders]
+    for(let i=0;i<texts.length;i++){
+        var cell = document.createElement("td");
+    cell.textContent = texts[i];
+    row.appendChild(cell);
+    }
+
+      
+      // idCell.setAttribute("contenteditable", "true");  
+    // var displayCell=document.createElement("td")
+    // var displayButton=document.createElement("button");
+    // displayButton.textContent="Display";
+    // displayCell.appendChild(displayButton)
+    // displayButton.addEventListener("click",function(){
+    // var row = this.parentNode.parentNode;
+    // displayRow(row);})
+    // row.appendChild(displayCell);
+    collectionTable.appendChild(row);
+    //var row2 = document.createElement("tr");
+    //var displaycontentCell = document.createElement("td");
+    //displaycontentCell.textContent = displaycontent;
+    //displaycontentCell.setAttribute("contenteditable", "true"); 
+    //collectionTable.appendChild(row2);
+    };}
+}).catch((error) => {
+  console.log("Error getting collection documents: ", error);
+});
+
+</script>
+</html>
