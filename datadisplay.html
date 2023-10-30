@@ -42,6 +42,7 @@
     <h1>Quiz Data</h1>
     <table id="collectionData">
         <tr id="tag">
+            <td>No.</td>
             <td>Time</td>
             <td>Comments</td>
             <td>总正确率</td>
@@ -76,7 +77,7 @@ measurementId: "G-Y8LKHVJ0ES"
 const app=initializeApp(firebaseConfig)
 const db = getFirestore(app);
 var collectionTable = document.getElementById("collectionData");
-
+var number=0;
 var querySnapshot = await getDocs(collection(db, "users"));
 querySnapshot.forEach((doc) => {
     var id = doc.id;
@@ -101,11 +102,12 @@ querySnapshot.forEach((doc) => {
 
     var row = document.createElement("tr");
     if (id!="不要删"){
+        number+=1;
         var row = document.createElement("tr");
         const parts=id.split('-')[0];
         const timestampInt=parseInt(parts,10);
         const time = new Date(timestampInt).toString().replace(/\s+\(.+\)$/, '');
-      var texts=[time,comment,percen,TF,TFs,slider,sliders]
+      var texts=[number,time,comment,percen,TF,TFs,slider,sliders]
     for(let i=0;i<texts.length;i++){
         var cell = document.createElement("td");
     cell.textContent = texts[i];
